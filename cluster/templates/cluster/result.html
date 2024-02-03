@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rekomendasi Obat</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
+
+</head>
+
+<body class="bg-[#F8F9FA]" >
+    <nav class="flex items-center justify-between flex-wrap bg-white p-6 px-10 font-['Quicksand'] drop-shadow-sm">
+        <div class="flex items-center flex-shrink-0 text-white mr-6">
+          <svg class="fill-[#924FD6] h-8 w-8 mr-2" width="54" height="54" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z"/></svg>
+          <span class="font-semibold text-2xl tracking-tight text-[#924FD6]">Drug.Re</span>
+        </div>
+        <div class="block lg:hidden">
+          <button class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-[#924FD6] hover:border-white">
+            <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+          </button>
+        </div>
+        <div class="w-full block  lg:flex lg:items-center lg:w-auto">
+          <div class="text-lg lg:flex-grow mr-5 font-semibold ">
+            <a href="/" class="block mt-4 lg:inline-block lg:mt-0 text-black  hover:text-[#924FD6] mr-4">
+              Home
+            </a>
+            <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-black hover:text-[#924FD6] mr-4">
+              About
+            </a>
+            
+          </div>
+          
+        </div>
+    </nav>
+
+    
+    <div class="container font-['Quicksand'] h-full w-full mt-8">
+        <div class="inner-container flex flex-col items-center justify-center">
+            <h1 class="font-bold text-4xl title-name">{{name}}</h1>
+            <div class="hasil-cluster bg-[#924FD6] px-3 text-white mt-3 rounded-xl font-medium">
+                <h3>0 Obat Ditemukan</h3>
+            </div>
+            <form action="/result" method= "POST">
+                {% csrf_token %}
+              
+                <div class="container-input mt-4  ">
+                    <input type="text" name="searchUser" class="search-container w-[460px] h-[42px] drop-shadow-lg rounded-lg p-6 focus:outline-none" placeholder="Cari obat disini...">
+                    <!-- Using utilities: -->
+                <button class="bg-[#924FD6] hover:bg-[#c68eff] h-[42px] px-8  text-white font-bold py-2 rounded ">
+                    Cari
+                </button>
+        
+                </div>
+              </form>
+            </div> 
+
+            <div class="search-container-obat flex flex-row flex-wrap justify-center   w-full px-2 mt-7 mb-5     ">
+            </div>
+            <div class="load-more-container w-full flex justify-center mb-5">
+                <div class="load-more text-white bg-[#924FD6] w-max px-4 py-3 text-sm rounded-3xl font-semibold hidden">
+                    LEBIH BANYAK
+                </div>
+            </div>
+            {% comment %} <img src="{% static "cluster/img/dokter.jpg" %}" alt="dokter" class="h-[300px] w-[450px]">
+            <h1 class="text-4xl font-medium text-black mb-2">Cari Obat Dengan <span class="font-bold text-[#F08545]">Cepat</span> dan <span class="font-bold text-[#924FD6]">Mudah!</span></h1>
+            <div class="container-input mt-4  ">
+                <input type="text" class="search-container w-[460px] h-[42px] drop-shadow-lg rounded-lg p-6 focus:outline-none" placeholder="Cari obat disini...">
+                <!-- Using utilities: -->
+            <button class="bg-[#924FD6] hover:bg-[#c68eff] h-[42px] px-8  text-white font-bold py-2 rounded ">
+                Cari
+            </button>
+  
+            </div> {% endcomment %}
+        </div>
+    </div>
+    <script src="{% static "cluster/js/result.js" %}"></script>
+</body>
+</html>

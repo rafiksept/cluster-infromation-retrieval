@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/c5f10f6a-3779-4cf4-9795-02b8d9ec9836/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/information-drug-data",
+    "appService.deploySubpath": "."
+}
